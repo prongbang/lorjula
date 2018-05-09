@@ -1,0 +1,27 @@
+{% extends "base.html" %} 
+
+{% block title %}{% endblock %} 
+{% block head %}
+    {{ parent() }}
+    <!-- facebook open graph tags -->
+    <meta property="og:title" content="{{post.title}}" />
+    <meta property="og:image" content="http://blog.lorjula.com/storage/{{post.image}}">
+    <meta property="og:description" content="{{post.excerpt}}">
+    
+    <!-- twitter card tags additive with the og: tags -->
+    <meta name="twitter:title" value="{{post.title}}" />
+    <meta name="twitter:image" content="http://blog.lorjula.com/storage/{{post.image}}" />
+    <meta name="twitter:description" value="{{post.excerpt}}"/>
+    
+    <link rel="canonical" href="https://lorjula.com/post/{{post.id}}">
+{% endblock %} 
+
+{% block content %}
+  <div>
+        {{ parent() }}
+  </div>
+{% endblock %} 
+
+{% block footer %}
+	{{ parent() }} 
+{% endblock %}

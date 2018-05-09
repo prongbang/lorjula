@@ -1,0 +1,55 @@
+{% extends "base.html" %} 
+
+{% block title %} {% endblock %} 
+{% block head %}
+	{{ parent() }}
+
+	{% if (page == 'home') %}
+		<!-- facebook open graph tags -->
+		<meta property="og:title" content="ลอจุฬา.คอม">
+		<meta property="og:image" content="https://lorjula.com/static/img/lorjula.png">
+		<meta property="og:description" content="เป็นเวปไซต์ รวบรวมเรื่องเกร็ดความรู้ต่าง ๆ ไม่ว่าจะเป็นเรื่องเกี่ยวกับไอที การเขียนโปรแกรม รีวิว และอื่น ๆ อีกมากมาย...">
+
+		<!-- twitter card tags additive with the og: tags -->
+		<meta name="twitter:title" content="ลอจุฬา.คอม" />
+		<meta name="twitter:image" content="https://lorjula.com/static/img/lorjula.png" />
+		<meta name="twitter:description" value="เป็นเวปไซต์ รวบรวมเรื่องเกร็ดความรู้ต่าง ๆ ไม่ว่าจะเป็นเรื่องเกี่ยวกับไอที การเขียนโปรแกรม รีวิว และอื่น ๆ อีกมากมาย..."/>
+
+		<link rel="canonical" href="https://lorjula.com">
+	{% endif %}
+	{% if (page == 'post') %}
+    <!-- facebook open graph tags -->
+    <meta property="og:title" content="{{post.title}}" />
+    <meta property="og:image" content="http://blog.lorjula.com/storage/{{post.image}}">
+	<meta property="og:description" content="{{post.excerpt}}">
+	
+    <!-- twitter card tags additive with the og: tags -->
+    <meta name="twitter:title" content="{{post.title}}" />
+    <meta name="twitter:image" content="http://blog.lorjula.com/storage/{{post.image}}" />
+	<meta name="twitter:description" value="{{post.excerpt}}"/>
+	
+    <link rel="canonical" href="https://lorjula.com/post/{{post.id}}">
+	{% endif %}
+	{% if (page == 'category') %}
+	<!-- facebook open graph tags -->
+	<meta property="og:title" content="{{category.name}}">
+	<meta property="og:image" content="https://lorjula.com/static/img/lorjula.png">
+	<meta property="og:description" content="รวบรวมเรื่องเกร็ดความรู้ต่าง ๆ ไม่ว่าจะเป็นเรื่องเกี่ยวกับไอที การเขียนโปรแกรม รีวิว และอื่น ๆ อีกมากมาย...">
+
+	<!-- twitter card tags additive with the og: tags -->
+	<meta name="twitter:title" content="{{category.name}}" />
+	<meta name="twitter:image" content="https://lorjula.com/static/img/lorjula.png" />
+	<meta name="twitter:description" value="รวบรวมเรื่องเกร็ดความรู้ต่าง ๆ ไม่ว่าจะเป็นเรื่องเกี่ยวกับไอที การเขียนโปรแกรม รีวิว และอื่น ๆ อีกมากมาย..."/>
+
+	<link rel="canonical" href="https://lorjula.com/category/{{category.name}}">
+	{% endif %}
+	
+{% endblock %} 
+
+{% block content %}
+	{{ parent() }}
+{% endblock %} 
+
+{% block footer %}
+	{{ parent() }} 
+{% endblock %}
